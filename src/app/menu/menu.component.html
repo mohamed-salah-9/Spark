@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 p-0">
+            <section class="side">
+                <div class="container-fluid">
+                    <div class="row side-div-f">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active p-2">
+                                <a class="nav-a text-dark nav-link p-0" routerlinkactive="active" routerLink="#"
+                                    (click)="redirectTo_Data()"><i class="mr-3 fas fa-home"></i>Home</a>
+                            </li>
+                            <li class="nav-item active p-2 pt-4">
+                                <a class="nav-a text-dark nav-link p-0" href="#"> <i
+                                        class="mr-4  fas fa-dollar-sign"></i>Payroll</a>
+                            </li>
+                            <li class="nav-item active p-2 pt-4">
+                                <a class="nav-a text-dark nav-link p-0" href="#"> <i class="mr-3  far fa-copy"></i>My
+                                    Payslip</a>
+                            </li>
+                            <li class="nav-item active p-2 pt-4">
+                                <a class="nav-a text-dark nav-link p-0" href="#"> <i
+                                        class="mr-3 fas fa-money-check-alt"></i>My
+                                    Loans</a>
+                            </li>
+                            <li class="nav-item active p-2 pt-4">
+                                <a class="nav-a text-dark nav-link p-0" href="#"><i
+                                        class="mr-3 side-i fas fa-user"></i>My
+                                    Profile</a>
+                            </li>
+                            <li class="nav-item active p-2 pt-4">
+                                <a class="nav-a text-dark nav-link p-0" href="#"> <i
+                                        class="mr-3 far fa-copy"></i>Reports</a>
+                            </li>
+                            <li class="nav-item active p-2 pt-4">
+                                <a class="nav-a text-dark nav-link p-0" href="#"> <i
+                                        class="mr-3 fas fa-cog"></i>Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-dark">website</button>
+                        <ul class="nav justify-content-center text-light pt-3">
+                            <li class="text-dark"><i class="fab fa-twitter-square fa-2x"></i></li>
+                            <li class="ml-2 text-dark"><i class="fab fa-linkedin fa-2x"></i></li>
+                            <li class="ml-2 text-dark"><i class="fab fa-facebook fa-2x"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

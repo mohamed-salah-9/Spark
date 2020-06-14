@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg ">
+  <h2 class="navbar-brand mr-5">HR User</h2>
+  <ul class="navbar-nav ml-5">
+    <li class="nav-item active">
+      <p class="pt-1">language</p>
+    </li>
+    <li class="nav-item ml-3">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active btn-sm">
+          <input type="radio" name="options" id="option1" checked> English
+        </label>
+
+        <label class="btn btn-secondary btn-sm">
+          <input type="radio" name="options" id="option3"> عربي
+        </label>
+      </div>
+    </li>
+    <li class="nav-item ml-5">
+      <i class="fas fa-envelope-open-text fa-2x"></i>
+    </li>
+    <li class="nav-item ml-3">
+      <i class="far fa-question-circle fa-2x"></i>
+    </li>
+    <li class="nav-item ml-3">
+      <i class="fas fa-cog fa-2x"></i>
+    </li>
+    <li class="nav-item ml-3">
+      <i class="fas fa-caret-down fa-2x"></i>
+    </li>
+  </ul>
+</nav>
+<div class="text-left ml-3 mt-3">
+  <a type="" class="btn btn-outline-primary"><span class="mr-2">+</span> <span class="text-dark">Employee</span></a>
+  <a type="" class="btn btn-outline-primary ml-3"><span class="mr-2">+</span> <span class="text-dark">Add
+      Filter</span></a>
+  <a type="" class="btn btn-outline-primary ml-3"> <span class="text-dark mr-2">Export</span><span class="mr-3"><i
+        class="fas fa-download"></i></span></a>
+</div>
+
+
+<div class="mt-5">
+  <p-table [responsive]="true" #dt1  [rowsPerPageOptions]="[5,10,20]"
+    dataKey="vin" [resizableColumns]="true" [reorderableColumns]="true" selectionMode="single"
+    [(selection)]="selectedCar1" stateStorage="session" stateKey="statedemo-session" [columns]="cols"
+    [value]="employees.data" sortMode="multiple" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn pReorderableColumn>
+              {{col.header}}
+              <p-sortIcon [field]="col.field"></p-sortIcon>
+          </th>
+      </tr>
+      <tr>
+          <th *ngFor="let col of columns" [ngSwitch]="col.field" class="col-fluid">
+            <input pInputText type="text" (input)="dt1.filter($event.target.value, col.field, col.filterMatchMode)" [value]="dt1.filters[col.field]?.value">
+          </th>
+      </tr>
+  </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
